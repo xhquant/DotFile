@@ -92,12 +92,6 @@ export YASMSYS=/opt/yasm/install
 export HTOPSYS=/opt/htop/install
 export PATH=$HTOPSYS/bin:$PATH
 
-#===============self=================
-export SELFSYS=/opt/self
-export LD_LIBRARY_PATH=$SELFSYS/lib/trader/ESAPI:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=$SELFSYS/lib/trader/CTPAPI:$LD_LIBRARY_PATH
-export PATH=$SELFSYS/bin:$PATH
-
 #==============libxml2===============
 export LIBXML2SYS=/opt/libxml2/install
 export PATH=$LIBXML2SYS/bin:$PATH
@@ -128,10 +122,6 @@ export C_INCLUDE_PATH=$TA_LIBSYS/include:$C_INCLUDE_PATH
 #============emacs=================
 export PATH=/opt/emacs/install/bin:$PATH
 
-#=============eigen================
-export EIGENSYS=/opt/eigen/install
-export CPLUS_INCLUDE_PATH=$EIGENSYS/include:$CPLUS_INCLUDE_PATH
-
 #============libtorch==============
 export LIBTORCHSYS=/opt/libtorch/install
 export PATH=$LIBTORCHSYS/bin:$PATH
@@ -141,18 +131,10 @@ export LD_LIBRARY_PATH=$LIBTORCHSYS/lib:$LD_LIBRARY_PATH
 export PYBIND11SYS=/opt/pybind11/install
 export CPLUS_INCLUDE_PATH=$PYBIND11SYS/include:$CPLUS_INCLUDE_PATH
 
-#=============spdlog==============
-export SPDLOGSYS=/opt/spdlog/install
-export CPLUS_INCLUDE_PATH=$SPDLOGSYS/include:$CPLUS_INCLUDE_PATH
-export LIBRARY_PATH=$SPDLOGSYS/lib64:$LIBRARY_PATH
-
 #=============DLIB================
 export DLIBSYS=/opt/dlib/install
 export LD_LIBRARY_PATH=$DLIBSYS/lib64:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=$DLIBSYS/include:$CPLUS_INCLUDE_PATH
-
-#============numcpp===============
-export CPLUS_INCLUDE_PATH=/opt/numcpp/install/include:$CPLUS_INCLUDE_PATH
 
 #===========quantlib==============
 export QUANTLIBSYS=/opt/quantlib/install
@@ -170,21 +152,10 @@ export CPLUS_INCLUDE_PATH=/opt/cereal/install/include:$CPLUS_INCLUDE_PATH
 #=============doxygen=============
 export PATH=/opt/doxygen/install/bin:$PATH
 
-#==============zmq================
-export ZMQSYS=/opt/zmq/install
-export LD_LIBRARY_PATH=$ZMQSYS/lib:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$ZMQSYS/include:$CPLUS_INCLUDE_PATH
-
 #==============curl===============
 export CURLSYS=/opt/curl/install
 export LD_LIBRARY_PATH=$CURLSYS/lib64:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=$CURLSYS/include:$CPLUS_INCLUDE_PATH
-
-#==============redis==============
-export REDISSYS=/opt/redis/install
-export PATH=$REDISSYS/bin:$PATH
-export CPLUS_INCLUDE_PATH=$REDISSYS/include:$CPLUS_INCLUDE_PATH
-export LD_LIBRARY_PATH=$REDISSYS/lib:$LD_LIBRARY_PATH
 
 #=============nodejs===============
 export NODEJSSYS=/opt/nodejs/install
@@ -203,40 +174,6 @@ export LD_LIBRARY_PATH=$GSLSYS/lib:$LD_LIBRARY_PATH
 #============texstudio=============
 export PATH=/opt/texstudio/install/bin:$PATH
 
-#============tiny-dnn==============
-export CPLUS_INCLUDE_PATH=/home/xiaohai/XHQuant/osc/ml/tiny-dnn/include:$CPLUS_INCLUDE_PATH
-
-#============MNN===================
-export MNNSYS=/home/xiaohai/XHQuant/osc/ml/MNN
-export CPLUS_INCLUDE_PATH=$MNNSYS/include:$CPLUS_INCLUDE_PATH
-export LD_LIBRARY_PATH=$MNNSYS/lib:$LD_LIBRARY_PATH
-
-#===========thundersvm=============
-export THUNDERSVMSYS=/home/xiaohai/XHQuant/osc/ml/thundersvm
-export CPLUS_INCLUDE_PATH=$THUNDERSVMSYS/include:$CPLUS_INCLUDE_PATH
-export LD_LIBRARY_PATH=$THUNDERSVMSYS/lib:$LD_LIBRARY_PATH
-export PATH=$THUNDERSVMSYS/bin:$PATH
-
-#===========xgboost===============
-export XGBOOSTSYS=/home/xiaohai/XHQuant/osc/ml/xgboost
-export CPLUS_INCLUDE_PATH=$XGBOOSTSYS/include:$CPLUS_INCLUDE_PATH
-export LIBRARY_PATH=$XGBOOSTSYS/lib64/:$LIBRARY_PATH
-export LD_LIBRARY_PATH=$XGBOOSTSYS/lib64/:$LD_LIBRARY_PATH
-export PATH=$XGBOOSTSYS/bin:$PATH
-
-#============lightGBM==============
-export LIGHTGBMSYS=/home/xiaohai/XHQuant/osc/ml/LightGBM
-export CPLUS_INCLUDE_PATH=$LIGHTGBMSYS/include:$CPLUS_INCLUDE_PATH
-export LD_LIBRARY_PATH=$LIGHTGBMSYS/lib:$LD_LIBRARY_PATH
-export PATH=$LIGHTGBMSYS/bin:$PATH
-
-#============DolphinDB============
-export DOLPHINDBSYS=/opt/DolphinDB/install
-export PATH=$DOLPHINDBSYS/server:$PATH
-export LD_LIBRARY_PATH=$DOLPHINDBSYS/server:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=$DOLPHINDBSYS/cpp-api/lib:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$DOLPHINDBSYS/cpp-api/include:$CPLUS_INCLUDE_PATH
-
 #=============rxcpp===============
 export RXCPPSYS=/opt/rxcpp/install
 export CPLUS_INCLUDE_PATH=$RXCPPSYS/include:$CPLUS_INCLUDE_PATH
@@ -245,9 +182,82 @@ export CPLUS_INCLUDE_PATH=$RXCPPSYS/include:$CPLUS_INCLUDE_PATH
 export DATAGRIPSYS=/opt/datagrip/install
 export PATH=$DATAGRIPSYS/bin:$PATH
 
-#============nanomsg==============
-export NANOMSGSYS=/opt/nanomsg/install
+#=======mysql-connector-cpp=======
+export MYSQLCONNECTORCPPSYS=/opt/mysql-connector-cpp/install
+export CPLUS_INCLUDE_PATH=$MYSQLCONNECTORCPPSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$MYSQLCONNECTORCPPSYS/lib:$LD_LIBRARY_PATH
+
+
+
+###################################################################################
+###                         我的量化分析库和交易系统库
+###################################################################################
+####################  eigen  ####################
+export EIGENSYS=/opt/ZZZ/eigen/install
+export CPLUS_INCLUDE_PATH=$EIGENSYS/include:$CPLUS_INCLUDE_PATH
+
+######################  xtl  ####################
+export XTLSYS=/opt/ZZZ/xtensor/install
+export CPLUS_INCLUDE_PATH=$XTLSYS/include:$CPLUS_INCLUDE_PATH
+
+####################  xtensor  ##################
+export XTENSORSYS=/opt/ZZZ/xtensor/install
+export CPLUS_INCLUDE_PATH=$XTENSORSYS/include:$CPLUS_INCLUDE_PATH
+
+####################  hdf5  #####################
+export HDF5SYS=/opt/ZZZ/highfive/install
+export CPLUS_INCLUDE_PATH=$HDF5SYS/include:$CPLUS_INCLUDE_PATH
+
+#########  redis and redisplusplus  ############
+export REDISSYS=/opt/ZZZ/redis/install
+export PATH=$REDISSYS/bin:$PATH
+export CPLUS_INCLUDE_PATH=$REDISSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$REDISSYS/lib:$LD_LIBRARY_PATH
+
+###########  nanomsg and nanomsgxx  ############
+export NANOMSGSYS=/opt/ZZZ/nanomsg/install
 export PATH=$NANOMSGSYS/bin:$PATH
 export CPLUS_INCLUDE_PATH=$NANOMSGSYS/include:$CPLUS_INCLUDE_PATH
 export C_INCLUDE_PATH=$NANOMSGSYS/include:$C_INCLUDE_PATH
+export LD_LIBRARY_PATH=$NANOMSGSYS/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$NANOMSGSYS/lib64:$LD_LIBRARY_PATH
+
+###################  spdlog  ####################
+export SPDLOGSYS=/opt/ZZZ/spdlog/install
+export CPLUS_INCLUDE_PATH=$SPDLOGSYS/include:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=$SPDLOGSYS/lib64:$LIBRARY_PATH
+
+# ###################  tiny-dnn  ##################
+# export CPLUS_INCLUDE_PATH=/opt/ZZZ/tiny-dnn/install/include:$CPLUS_INCLUDE_PATH
+
+###################  xgboost   ##################
+export XGBOOSTSYS=/opt/ZZZ/xgboost/install
+export PATH=$XGBOOSTSYS/bin:$PATH
+export CPLUS_INCLUDE_PATH=$XGBOOSTSYS/include:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=$XGBOOSTSYS/lib64/:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$XGBOOSTSYS/lib64/:$LD_LIBRARY_PATH
+
+###################  lightGBM  ##################
+export LIGHTGBMSYS=/opt/ZZZ/lightGBM/install
+export CPLUS_INCLUDE_PATH=$LIGHTGBMSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$LIGHTGBMSYS/lib:$LD_LIBRARY_PATH
+export PATH=$LIGHTGBMSYS/bin:$PATH
+
+################# thundersvm  ###################
+export THUNDERSVMSYS=/opt/ZZZ/thundersvm/install
+export PATH=$THUNDERSVMSYS/bin:$PATH
+export CPLUS_INCLUDE_PATH=$THUNDERSVMSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$THUNDERSVMSYS/lib:$LD_LIBRARY_PATH
+
+#################### MNN  #######################
+export MNNSYS=/opt/ZZZ/MNN/install
+export CPLUS_INCLUDE_PATH=$MNNSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$MNNSYS/lib:$LD_LIBRARY_PATH
+
+###################  tinyxml2  ##################
+export TINYXML2SYS=/opt/ZZZ/tinyxml2/install
+export CPLUS_INCLUDE_PATH=$TINYXML2SYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$TINYXML2SYS/lib:$LD_LIBRARY_PATH
+
+#####################  json  ####################
+export CPLUS_INCLUDE_PATH=/opt/ZZZ/json/install/include:$CPLUS_INCLUDE_PATH
