@@ -10,6 +10,7 @@ alias sim='ssh -X xiaohai@218.16.123.197'
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
+export OMP_NUM_THREADS=1
 
 #==========qt=================
 export QTSYS=/opt/qt/install
@@ -31,10 +32,6 @@ export PATH=/opt/pycharm/install/bin:$PATH
 export CMAKESYS=/opt/cmake/install
 export PATH=$CMAKESYS/bin:$PATH
 
-#===========vscode============
-export VSCODESYS=/opt/vscode/install
-export PATH=$VSCODESYS/bin:$PATH
-
 #==========ffmpeg=============
 export FFMPEGSYS=/opt/ffmpeg/install
 export PATH=$FFMPEGSYS/bin:$PATH
@@ -49,7 +46,9 @@ export PYTHON_INCLUDE_DIRS=$PYTHON3SYS/include:$PYTHON_INCLUDE_DIRS
 export LD_LIBRARY_PATH=$PYTHON3SYS/lib:$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=$PYTHON3SYS/lib/pkgconfig:$PKG_CONFIG_PATH
 
-export PYTHONPATH=/home/xiaohai/XHQuant/gui:$PYTHONPATH
+export PYTHONPATH=/home/xiaohai/XHQuant/py:$PYTHONPATH
+
+export CPLUS_INCLUDE_PATH=$PYTHON3SYS/include/python3.8:$CPLUS_INCLUDE_PATH
 
 #=========opencv==============
 export OPENCVSYS=/opt/opencv4.0/install
@@ -61,7 +60,7 @@ export CPLUS_INCLUDE_PATH=$OPENCVSYS/include/opencv4:$CPLUS_INCLUDE_PATH
 #==========boost==============
 export BOOSTSYS=/opt/boost/install
 export LD_LIBRARY_PATH=$BOOSTSYS/lib:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$BOOSTSYS/include
+export CPLUS_INCLUDE_PATH=$BOOSTSYS/include:$CPLUS_INCLUDE_PATH
 
 #===========root==============
 export ROOTSYS=/opt/root/install
@@ -87,10 +86,6 @@ export PATH=$WPSSYS:$PATH
 
 #===========yasm==============
 export YASMSYS=/opt/yasm/install
-
-#============htop=============
-export HTOPSYS=/opt/htop/install
-export PATH=$HTOPSYS/bin:$PATH
 
 #==============libxml2===============
 export LIBXML2SYS=/opt/libxml2/install
@@ -122,40 +117,17 @@ export C_INCLUDE_PATH=$TA_LIBSYS/include:$C_INCLUDE_PATH
 #============emacs=================
 export PATH=/opt/emacs/install/bin:$PATH
 
-#============libtorch==============
-export LIBTORCHSYS=/opt/libtorch/install
-export PATH=$LIBTORCHSYS/bin:$PATH
-export LD_LIBRARY_PATH=$LIBTORCHSYS/lib:$LD_LIBRARY_PATH
-
 #=============pybind11============
 export PYBIND11SYS=/opt/pybind11/install
 export CPLUS_INCLUDE_PATH=$PYBIND11SYS/include:$CPLUS_INCLUDE_PATH
-
-#=============DLIB================
-export DLIBSYS=/opt/dlib/install
-export LD_LIBRARY_PATH=$DLIBSYS/lib64:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$DLIBSYS/include:$CPLUS_INCLUDE_PATH
 
 #===========quantlib==============
 export QUANTLIBSYS=/opt/quantlib/install
 export CPLUS_INCLUDE_PATH=$QUANTLIBSYS/include:$CPLUS_INCLUDE_PATH
 export LD_LIBRARY_PATH=$QUANTLIBSYS/lib:$LD_LIBRARY_PATH
 
-#==============tbb================
-export TBBSYS=/opt/tbb/install
-export CPLUS_INCLUDE_PATH=$TBBSYS/include:$CPLUS_INCLUDE_PATH
-export LD_LIBRARY_PATH=$TBBSYS/lib:$LD_LIBRARY_PATH
-
-#=============cereal==============
-export CPLUS_INCLUDE_PATH=/opt/cereal/install/include:$CPLUS_INCLUDE_PATH
-
 #=============doxygen=============
 export PATH=/opt/doxygen/install/bin:$PATH
-
-#==============curl===============
-export CURLSYS=/opt/curl/install
-export LD_LIBRARY_PATH=$CURLSYS/lib64:$LD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=$CURLSYS/include:$CPLUS_INCLUDE_PATH
 
 #=============nodejs===============
 export NODEJSSYS=/opt/nodejs/install
@@ -174,10 +146,6 @@ export LD_LIBRARY_PATH=$GSLSYS/lib:$LD_LIBRARY_PATH
 #============texstudio=============
 export PATH=/opt/texstudio/install/bin:$PATH
 
-#=============rxcpp===============
-export RXCPPSYS=/opt/rxcpp/install
-export CPLUS_INCLUDE_PATH=$RXCPPSYS/include:$CPLUS_INCLUDE_PATH
-
 #============datagrip=============
 export DATAGRIPSYS=/opt/datagrip/install
 export PATH=$DATAGRIPSYS/bin:$PATH
@@ -194,15 +162,37 @@ export LD_LIBRARY_PATH=$MYSQLCONNECTORCPPSYS/lib:$LD_LIBRARY_PATH
 ###################################################################################
 ####################  eigen  ####################
 export EIGENSYS=/opt/ZZZ/eigen/install
-export CPLUS_INCLUDE_PATH=$EIGENSYS/include:$CPLUS_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$EIGENSYS/include/eigen3:$CPLUS_INCLUDE_PATH
 
-######################  xtl  ####################
+############  xtl need by xtensor  ##############
 export XTLSYS=/opt/ZZZ/xtensor/install
 export CPLUS_INCLUDE_PATH=$XTLSYS/include:$CPLUS_INCLUDE_PATH
 
 ####################  xtensor  ##################
 export XTENSORSYS=/opt/ZZZ/xtensor/install
 export CPLUS_INCLUDE_PATH=$XTENSORSYS/include:$CPLUS_INCLUDE_PATH
+
+#################  armadillo  ###################
+export ARMADILLOSYS=/opt/ZZZ/armadillo/install
+export CPLUS_INCLUDE_PATH=$ARMADILLOSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$ARMADILLOSYS/lib64:$LD_LIBRARY_PATH
+
+###################  numcpp  ####################
+export NUMCPPSYS=/opt/ZZZ/numcpp/install
+export CPLUS_INCLUDE_PATH=$NUMCPPSYS/include:$CPLUS_INCLUDE_PATH
+
+#################  dataframe  ###################
+export DATAFRAMESYS=/opt/ZZZ/dataframe/install
+export CPLUS_INCLUDE_PATH=$DATAFRAMESYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$DATAFRAMESYS/lib64:$LD_LIBRARY_PATH
+
+###################  rxcpp  #####################
+export RXCPPSYS=/opt/ZZZ/rxcpp/install
+export CPLUS_INCLUDE_PATH=$RXCPPSYS/include:$CPLUS_INCLUDE_PATH
+
+###################  cereal  ####################
+export CEREALSYS=/opt/ZZZ/cereal/install
+export CPLUS_INCLUDE_PATH=$CEREALSYS/include:$CPLUS_INCLUDE_PATH
 
 ####################  hdf5  #####################
 export HDF5SYS=/opt/ZZZ/highfive/install
@@ -222,13 +212,31 @@ export C_INCLUDE_PATH=$NANOMSGSYS/include:$C_INCLUDE_PATH
 export LD_LIBRARY_PATH=$NANOMSGSYS/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$NANOMSGSYS/lib64:$LD_LIBRARY_PATH
 
+#############  zeromq and cppzmq  #############
+export ZEROMQSYS=/opt/ZZZ/zeromq/install
+export PATH=$ZEROMQSYS/bin:$PATH
+export CPLUS_INCLUDE_PATH=$ZEROMQSYS/include:$CPLUS_INCLUDE_PATH
+export C_INCLUDE_PATH=$ZEROMQSYS/include:$C_INCLUDE_PATH
+export LIBRARY_PATH=$ZEROMQSYS/lib64:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$ZEROMQSYS/lib64:$LD_LIBRARY_PATH
+
 ###################  spdlog  ####################
 export SPDLOGSYS=/opt/ZZZ/spdlog/install
 export CPLUS_INCLUDE_PATH=$SPDLOGSYS/include:$CPLUS_INCLUDE_PATH
 export LIBRARY_PATH=$SPDLOGSYS/lib64:$LIBRARY_PATH
 
-# ###################  tiny-dnn  ##################
-# export CPLUS_INCLUDE_PATH=/opt/ZZZ/tiny-dnn/install/include:$CPLUS_INCLUDE_PATH
+##################  log4cplus  ##################
+export LOG4CPLUSSYS=/opt/ZZZ/log4cplus/install
+export CPLUS_INCLUDE_PATH=$LOG4CPLUSSYS/include:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=$LOG4CPLUSSYS/lib64:$LIBRARY_PATH
+
+####################  fmt  ######################
+export FMTSYS=/opt/ZZZ/fmt/install
+export CPLUS_INCLUDE_PATH=$FMTSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$FMTSYS/lib64:$LD_LIBRARY_PATH
+
+###################  tiny-dnn  ##################
+export CPLUS_INCLUDE_PATH=/opt/ZZZ/tiny-dnn/install/include:$CPLUS_INCLUDE_PATH
 
 ###################  xgboost   ##################
 export XGBOOSTSYS=/opt/ZZZ/xgboost/install
@@ -240,6 +248,7 @@ export LD_LIBRARY_PATH=$XGBOOSTSYS/lib64/:$LD_LIBRARY_PATH
 ###################  lightGBM  ##################
 export LIGHTGBMSYS=/opt/ZZZ/lightGBM/install
 export CPLUS_INCLUDE_PATH=$LIGHTGBMSYS/include:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=$LIGHTGBMSYS/lib:$LIBRARY_PATH
 export LD_LIBRARY_PATH=$LIGHTGBMSYS/lib:$LD_LIBRARY_PATH
 export PATH=$LIGHTGBMSYS/bin:$PATH
 
@@ -254,10 +263,50 @@ export MNNSYS=/opt/ZZZ/MNN/install
 export CPLUS_INCLUDE_PATH=$MNNSYS/include:$CPLUS_INCLUDE_PATH
 export LD_LIBRARY_PATH=$MNNSYS/lib:$LD_LIBRARY_PATH
 
+#################  libTorch  ####################
+export LIBTORCHSYS=/opt/ZZZ/libTorch/install
+export PATH=$PATH:$LIBTORCHSYS/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LIBTORCHSYS/lib
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$LIBTORCHSYS/include
+
+##################  mlpack  #####################
+export MLPACKSYS=/opt/ZZZ/mlpack/install
+export PATH=$MLPACKSYS/bin:$PATH
+export LD_LIBRARY_PATH=$MLPACKSYS/lib:$LD_LIBRARY_PATH
+export CPLUS_INCLUDE_PATH=$MLPACKSYS/include:$CPLUS_INCLUDE_PATH
+
+##################  DLIB  #######################
+export DLIBSYS=/opt/ZZZ/dlib/install
+export LIBRARY_PATH=$DLIBSYS/lib64:$LIBRARY_PATH
+export CPLUS_INCLUDE_PATH=$DLIBSYS/include:$CPLUS_INCLUDE_PATH
+
 ###################  tinyxml2  ##################
 export TINYXML2SYS=/opt/ZZZ/tinyxml2/install
 export CPLUS_INCLUDE_PATH=$TINYXML2SYS/include:$CPLUS_INCLUDE_PATH
 export LD_LIBRARY_PATH=$TINYXML2SYS/lib:$LD_LIBRARY_PATH
 
 #####################  json  ####################
-export CPLUS_INCLUDE_PATH=/opt/ZZZ/json/install/include:$CPLUS_INCLUDE_PATH
+export JSONSYS=/opt/ZZZ/json/install
+export CPLUS_INCLUDE_PATH=$JSONSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$JSONSYS/lib64:$LD_LIBRARY_PATH
+
+#####################  date  ####################
+export CPLUS_INCLUDE_PATH=/opt/ZZZ/date/install/include:$CPLUS_INCLUDE_PATH
+
+###################  onetbb  ####################
+export TBBSYS=/opt/ZZZ/oneTBB/install
+export CPLUS_INCLUDE_PATH=$TBBSYS/include:$CPLUS_INCLUDE_PATH
+export LD_LIBRARY_PATH=$TBBSYS/lib64:$LD_LIBRARY_PATH
+
+###############  PlotJuggler  ##################
+export PATH=/opt/ZZZ/PlotJuggler/install/bin:$PATH
+
+################# matplotlib ###################
+export MATPLOTLIBSYS=/opt/ZZZ/matplotlib-cpp/install
+export CPLUS_INCLUDE_PATH=$MATPLOTLIBSYS/include:$CPLUS_INCLUDE_PATH
+
+###################  bsim  #####################
+export BSIMSYS=/opt/bsimrelease_tick
+export PATH=$BSIMSYS/bin:$PATH
+export LD_LIBRARY_PATH=$BSIMSYS/modules:$LD_LIBRARY_PATH
+export CPLUS_INCLUDE_PATH=$BSIMSYS/core:$CPLUS_INCLUDE_PATH
